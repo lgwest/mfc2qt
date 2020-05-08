@@ -1,8 +1,9 @@
 #!/usr/bin/bash
 
 mkdir -p build
-pushd build > /dev/null
+pushd build 2>/dev/null
+rm -f CMakeCache.txt
 cmake ..
 cmake --build .
-popd > /dev/null
+popd 2>/dev/null
 
