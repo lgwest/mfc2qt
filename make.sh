@@ -1,9 +1,9 @@
 #!/usr/bin/bash
 
 mkdir -p build
-pushd build 2>/dev/null
+pushd build >/dev/null
 rm -f CMakeCache.txt
-cmake ..
+cmake -G "Visual Studio 14 2015" ..
 cmake --build .
-popd 2>/dev/null
+popd >/dev/null
 

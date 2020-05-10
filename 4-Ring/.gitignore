@@ -1,0 +1,5 @@
+build/
+*.aps
+Thumbs.db
+*.manifest
+

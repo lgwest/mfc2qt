@@ -2,6 +2,23 @@ cmake_minimum_required(VERSION 3.11)
 
 project(mfc2qt)
 
+add_definitions(-D_AFXDLL)
+add_definitions(-DNO_WARN_MBCS_MFC_DEPRECATION)
+set(CMAKE_MFC_FLAG 1)
+
+function(assign_source_group)
+  foreach(_source IN ITEMS ${ARGN})
+	if (IS_ABSOLUTE "${_source}")
+	  file(RELATIVE_PATH _source_rel "${CMAKE_SOURCE_DIR}" "${_source}")
+	else()
+	  set(_source_rel "${_source}")
+	endif()
+	get_filename_component(_source_path "${_source_rel}" PATH)
+	string(REPLACE "/" "\\" _source_path_msvc ${_source_path})
+	source_group("${_source_path_msvc}" FILES "${_source}")
+  endforeach()
+endfunction(assign_source_group)
+
 include(FetchContent)
 
 FetchContent_Declare( 
@@ -13,6 +30,14 @@ FetchContent_MakeAvailable(qt_solutions)
 
 set(QTWINMIGRATE ${qt_solutions_SOURCE_DIR}/qtwinmigrate)
 
-message("QTWINMIGRATE is ${QTWINMIGRATE}")
+message("-- QTWINMIGRATE is ${QTWINMIGRATE}")
 
-add_subdirectory(Ring)
+set(UTILITY_DIR ${PROJECT_SOURCE_DIR}/5-Utility)
+set(UTILITY_SOURCE ${UTILITY_DIR}/utility.cmake)
+
+#add_subdirectory(1-2-ConsolProjects)
+add_subdirectory(4-Ring)
+add_subdirectory(6-Tetris)
+add_subdirectory(7-Draw)
+add_subdirectory(8-Calc)
+add_subdirectory(9-Word)
