@@ -6,6 +6,16 @@ add_definitions(-D_AFXDLL)
 add_definitions(-DNO_WARN_MBCS_MFC_DEPRECATION)
 set(CMAKE_MFC_FLAG 1)
 
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
+
+if(CMAKE_VERSION VERSION_LESS "3.7.0")
+    set(CMAKE_INCLUDE_CURRENT_DIR ON)
+endif()
+
+find_package(Qt5 COMPONENTS Core Widgets REQUIRED)
+
 function(assign_source_group)
   foreach(_source IN ITEMS ${ARGN})
 	if (IS_ABSOLUTE "${_source}")

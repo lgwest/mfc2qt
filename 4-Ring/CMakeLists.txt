@@ -23,3 +23,4 @@ stdafx.h
 targetver.h
 )
 add_executable(${PROJECT_NAME} WIN32 ${SOURCE_FILES})
+target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Widgets)
