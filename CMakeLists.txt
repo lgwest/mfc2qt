@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.11)
 
 project(mfc2qt)
 
+add_definitions(-DWINVER=0x0601)
+add_definitions(-D_WIN32_WINNT=0x0601)
 add_definitions(-D_AFXDLL)
 add_definitions(-DNO_WARN_MBCS_MFC_DEPRECATION)
 set(CMAKE_MFC_FLAG 1)
@@ -19,25 +21,23 @@ function(assign_source_group)
   endforeach()
 endfunction(assign_source_group)
 
-include(FetchContent)
 
-FetchContent_Declare( 
-  qt_solutions
-  GIT_REPOSITORY https://github.com/qtproject/qt-solutions.git
-)
+set(QTWINMIGRATE_SRC 
+${PROJECT_SOURCE_DIR}/qtwinmigrate/qmfcapp.cpp
+${PROJECT_SOURCE_DIR}/qtwinmigrate/qmfcapp.h
+${PROJECT_SOURCE_DIR}/qtwinmigrate/qwinhost.cpp
+${PROJECT_SOURCE_DIR}/qtwinmigrate/qwinhost.h
+${PROJECT_SOURCE_DIR}/qtwinmigrate/qwinwidget.cpp
+${PROJECT_SOURCE_DIR}/qtwinmigrate/qwinwidget.h)
 
-FetchContent_MakeAvailable(qt_solutions)
-
-set(QTWINMIGRATE ${qt_solutions_SOURCE_DIR}/qtwinmigrate)
-
-message("-- QTWINMIGRATE is ${QTWINMIGRATE}")
 
 set(UTILITY_DIR ${PROJECT_SOURCE_DIR}/5-Utility)
 set(UTILITY_SOURCE ${UTILITY_DIR}/utility.cmake)
 
 #add_subdirectory(1-2-ConsolProjects)
 add_subdirectory(4-Ring)
-add_subdirectory(6-Tetris)
-add_subdirectory(7-Draw)
-add_subdirectory(8-Calc)
-add_subdirectory(9-Word)
+#add_subdirectory(6-Tetris)
+#add_subdirectory(7-Draw)
+#add_subdirectory(8-Calc)
+#add_subdirectory(9-Word)
+add_subdirectory(Ring)

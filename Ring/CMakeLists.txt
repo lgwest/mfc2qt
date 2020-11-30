@@ -3,7 +3,14 @@ cmake_minimum_required(VERSION 3.11)
 add_definitions(-D_AFXDLL)
 set(CMAKE_MFC_FLAG 1)
 
-set(SOURCE_FILES
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
+find_package(Qt5 COMPONENTS Core Widgets Gui REQUIRED)
+
+include_directories(${Qt5Gui_PRIVATE_INCLUDE_DIRS})
+
+add_executable(QtRing WIN32 
 ChildFrm.cpp
 ChildFrm.h
 MainFrm.cpp
@@ -24,5 +31,6 @@ RingView.h
 stdafx.cpp
 stdafx.h
 targetver.h
+${QTWINMIGRATE_SRC}
 )
-add_executable(Ring WIN32 ${SOURCE_FILES})
+target_link_libraries(QtRing Qt5::Core Qt5::Widgets Qt5::Gui)
