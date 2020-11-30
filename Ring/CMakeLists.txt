@@ -8,9 +8,10 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 find_package(Qt5 COMPONENTS Core Widgets Gui REQUIRED)
 
-include_directories(${Qt5Gui_PRIVATE_INCLUDE_DIRS})
+include_directories(${Qt5Gui_PRIVATE_INCLUDE_DIRS} ${QTWINMIGRATE_DIR})
 
 add_executable(QtRing WIN32 
+${TOP_DIR}/readme.md
 ChildFrm.cpp
 ChildFrm.h
 MainFrm.cpp

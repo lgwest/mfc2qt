@@ -39,15 +39,17 @@ ${PROJECT_SOURCE_DIR}/qtwinmigrate/qwinhost.cpp
 ${PROJECT_SOURCE_DIR}/qtwinmigrate/qwinhost.h
 ${PROJECT_SOURCE_DIR}/qtwinmigrate/qwinwidget.cpp
 ${PROJECT_SOURCE_DIR}/qtwinmigrate/qwinwidget.h)
-
+set(QTWINMIGRATE_DIR ${PROJECT_SOURCE_DIR}/qtwinmigrate)
 
 set(UTILITY_DIR ${PROJECT_SOURCE_DIR}/5-Utility)
 set(UTILITY_SOURCE ${UTILITY_DIR}/utility.cmake)
 
+set(TOP_DIR ${PROJECT_SOURCE_DIR})
+
 #add_subdirectory(1-2-ConsolProjects)
 add_subdirectory(4-Ring)
-#add_subdirectory(6-Tetris)
-#add_subdirectory(7-Draw)
-#add_subdirectory(8-Calc)
-#add_subdirectory(9-Word)
+add_subdirectory(6-Tetris)
+add_subdirectory(7-Draw)
+add_subdirectory(8-Calc)
+add_subdirectory(9-Word)
 add_subdirectory(Ring)

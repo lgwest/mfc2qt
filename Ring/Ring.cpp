@@ -8,6 +8,7 @@
 #include "ChildFrm.h"
 #include "RingDoc.h"
 #include "RingView.h"
+#include "qmfcapp.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -116,6 +117,10 @@ BOOL CRingApp::InitInstance()
 	return TRUE;
 }
 
+BOOL CRingApp::Run()
+{
+	return QMfcApp::run(this);
+}
 
 
 // CAboutDlg dialog used for App About
