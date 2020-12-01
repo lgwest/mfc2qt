@@ -23,6 +23,7 @@ public:
 public:
 	virtual BOOL InitInstance();
 	virtual BOOL Run();
+	void OnAppAbout();
 	
 	DECLARE_MESSAGE_MAP()
 };

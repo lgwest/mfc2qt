@@ -8,7 +8,9 @@
 #include "ChildFrm.h"
 #include "RingDoc.h"
 #include "RingView.h"
-#include "qmfcapp.h"
+#include "QMfcApp"
+#include "QWinWidget"
+#include "QMessageBox"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -23,6 +25,7 @@ BEGIN_MESSAGE_MAP(CRingApp, CWinApp)
 	ON_COMMAND(ID_FILE_OPEN, &CWinApp::OnFileOpen)
 	// Standard print setup command
 	ON_COMMAND(ID_FILE_PRINT_SETUP, &CWinApp::OnFilePrintSetup)
+	ON_COMMAND(ID_APP_ABOUT, OnAppAbout)
 END_MESSAGE_MAP()
 
 
@@ -119,4 +122,11 @@ BOOL CRingApp::InitInstance()
 BOOL CRingApp::Run()
 {
 	return QMfcApp::run(this);
+}
+
+void CRingApp::OnAppAbout()
+{
+	QWinWidget win(theApp.m_pMainWnd);
+	win.showCentered();
+	QMessageBox::about(&win, "About QtRing", "QtMfc Version 1.0\nCopyright (C) 2003");
 }
