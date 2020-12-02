@@ -31,15 +31,22 @@ function(assign_source_group)
   endforeach()
 endfunction(assign_source_group)
 
+include(FetchContent)
+FetchContent_Declare(
+	qtwinmigrate
+	GIT_REPOSITORY git@github.com:lgwest/qtwinmigrate.git
+	GIT_TAG master
+)
+FetchContent_MakeAvailable(qtwinmigrate)
 
-set(QTWINMIGRATE_SRC 
-${PROJECT_SOURCE_DIR}/qtwinmigrate/qmfcapp.cpp
-${PROJECT_SOURCE_DIR}/qtwinmigrate/qmfcapp.h
-${PROJECT_SOURCE_DIR}/qtwinmigrate/qwinhost.cpp
-${PROJECT_SOURCE_DIR}/qtwinmigrate/qwinhost.h
-${PROJECT_SOURCE_DIR}/qtwinmigrate/qwinwidget.cpp
-${PROJECT_SOURCE_DIR}/qtwinmigrate/qwinwidget.h)
-set(QTWINMIGRATE_DIR ${PROJECT_SOURCE_DIR}/qtwinmigrate)
+#set(QTWINMIGRATE_SRC 
+#${PROJECT_SOURCE_DIR}/qtwinmigrate/qmfcapp.cpp
+#${PROJECT_SOURCE_DIR}/qtwinmigrate/qmfcapp.h
+#${PROJECT_SOURCE_DIR}/qtwinmigrate/qwinhost.cpp
+#${PROJECT_SOURCE_DIR}/qtwinmigrate/qwinhost.h
+#${PROJECT_SOURCE_DIR}/qtwinmigrate/qwinwidget.cpp
+#${PROJECT_SOURCE_DIR}/qtwinmigrate/qwinwidget.h)
+#set(QTWINMIGRATE_DIR ${PROJECT_SOURCE_DIR}/qtwinmigrate)
 
 set(UTILITY_DIR ${PROJECT_SOURCE_DIR}/5-Utility)
 set(UTILITY_SOURCE ${UTILITY_DIR}/utility.cmake)
