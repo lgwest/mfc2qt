@@ -34,4 +34,4 @@ stdafx.h
 targetver.h
 ${QTWINMIGRATE_SRC}
 )
-target_link_libraries(QtRing Qt5::Core Qt5::Widgets Qt5::Gui)
+target_link_libraries(QtRing Qt5::Core Qt5::Widgets Qt5::Gui qtwinmigrate::qtwinmigrate)
