@@ -1,9 +1,8 @@
 // RingView.cpp : implementation of the CRingView class
 //
 
-#include "StdAfx.h"
+#include "stdafx.h"
 #include <cassert>
-#include "Ring.h"
 
 #include "RingDoc.h"
 #include "RingView.h"
@@ -60,7 +59,7 @@ void CRingView::OnDraw(CDC* pDC)
   PointArray& pointArray = pDoc->GetPointArray();
   ColorArray& colorArray = pDoc->GetColorArray();
 
-  int iSize = (int) pointArray.GetSize();
+  int iSize = static_cast<int>(pointArray.GetSize());
   for (int iIndex = 0; iIndex < iSize; ++iIndex)
   {
     CPoint point = pointArray[iIndex];
@@ -148,40 +147,41 @@ void CRingView::OnLButtonDown(UINT nFlags, CPoint point)
 
 void CRingView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
-  switch (nChar)
-  {
-    case VK_UP:
-      OnVScroll(SB_LINEUP, 0, NULL);
-      break;
+	switch (nChar)
+	{
+	case VK_UP:
+		OnVScroll(SB_LINEUP, 0, NULL);
+		break;
 
-    case VK_DOWN:
-      OnVScroll(SB_LINEDOWN, 0, NULL);
-      break;
+	case VK_DOWN:
+		OnVScroll(SB_LINEDOWN, 0, NULL);
+		break;
 
-    case VK_PRIOR:
-      OnVScroll(SB_PAGEUP, 0, NULL);
-      break;
+	case VK_PRIOR:
+		OnVScroll(SB_PAGEUP, 0, NULL);
+		break;
 
-    case VK_NEXT:
-      OnVScroll(SB_PAGEDOWN, 0, NULL);
-      break;
+	case VK_NEXT:
+		OnVScroll(SB_PAGEDOWN, 0, NULL);
+		break;
 
-    case VK_LEFT:
-      OnHScroll(SB_LINELEFT, 0, NULL);
-      break;
+	case VK_LEFT:
+		OnHScroll(SB_LINELEFT, 0, NULL);
+		break;
 
-    case VK_RIGHT:
-      OnHScroll(SB_LINERIGHT, 0, NULL);
-      break;
+	case VK_RIGHT:
+		OnHScroll(SB_LINERIGHT, 0, NULL);
+		break;
 
-    case VK_HOME:
-      OnHScroll(SB_LEFT, 0, NULL);
-      break;
+	case VK_HOME:
+		OnHScroll(SB_LEFT, 0, NULL);
+		break;
 
-    case VK_END:
-      OnHScroll(SB_RIGHT, 0, NULL);
-      break;
-  }
+	case VK_END:
+		OnHScroll(SB_RIGHT, 0, NULL);
+		break;
+	default:;
+	}
 
-  CScrollView::OnKeyDown(nChar, nRepCnt, nFlags);
+	CScrollView::OnKeyDown(nChar, nRepCnt, nFlags);
 }

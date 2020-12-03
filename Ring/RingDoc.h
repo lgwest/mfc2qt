@@ -1,7 +1,7 @@
 // RingDoc.h : interface of the CRingDoc class
 //
 
-//#pragma once
+#pragma once
 
 #include <afxtempl.h>
 

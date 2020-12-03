@@ -1,7 +1,6 @@
 // ChildFrm.cpp : implementation of the CChildFrame class
 //
 #include "stdafx.h"
-#include "Ring.h"
 
 #include "ChildFrm.h"
 

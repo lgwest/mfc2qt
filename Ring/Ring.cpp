@@ -8,7 +8,6 @@
 #include "ChildFrm.h"
 #include "RingDoc.h"
 #include "RingView.h"
-#include "QMfcApp"
 #include "QWinWidget"
 #include "QMessageBox"
 
@@ -128,5 +127,5 @@ void CRingApp::OnAppAbout()
 {
 	QWinWidget win(theApp.m_pMainWnd);
 	win.showCentered();
-	QMessageBox::about(&win, "About QtRing", "QtMfc Version 1.0\nCopyright (C) 2003");
+	QMessageBox::about(&win, "About QtRing", "QtRing Version 0.1\ndecember 2020");
 }
