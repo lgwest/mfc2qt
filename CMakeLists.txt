@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.11)
+cmake_minimum_required(VERSION 3.14)
 
 project(mfc2qt)
 
@@ -38,15 +38,6 @@ FetchContent_Declare(
 	GIT_TAG master
 )
 FetchContent_MakeAvailable(qtwinmigrate)
-
-#set(QTWINMIGRATE_SRC 
-#${PROJECT_SOURCE_DIR}/qtwinmigrate/qmfcapp.cpp
-#${PROJECT_SOURCE_DIR}/qtwinmigrate/qmfcapp.h
-#${PROJECT_SOURCE_DIR}/qtwinmigrate/qwinhost.cpp
-#${PROJECT_SOURCE_DIR}/qtwinmigrate/qwinhost.h
-#${PROJECT_SOURCE_DIR}/qtwinmigrate/qwinwidget.cpp
-#${PROJECT_SOURCE_DIR}/qtwinmigrate/qwinwidget.h)
-#set(QTWINMIGRATE_DIR ${PROJECT_SOURCE_DIR}/qtwinmigrate)
 
 set(UTILITY_DIR ${PROJECT_SOURCE_DIR}/5-Utility)
 set(UTILITY_SOURCE ${UTILITY_DIR}/utility.cmake)
